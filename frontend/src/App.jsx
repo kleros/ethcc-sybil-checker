@@ -3,6 +3,8 @@ import { Html5Qrcode } from "html5-qrcode";
 import { createClient } from "@supabase/supabase-js";
 import "./App.css";
 
+const isUrl = (text) => /^https?:\/\//i.test(text);
+
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
   import.meta.env.VITE_SUPABASE_ANON_KEY
@@ -68,6 +70,11 @@ function App() {
 
   const handleScan = async (result) => {
     if (result?.text && scanning) {
+      if (isUrl(result.text)) {
+        setStatus("wrong-qr");
+        return;
+      }
+
       setScanning(false);
 
       if (db.includes(result.text)) {
@@ -118,7 +125,14 @@ function App() {
         <div className="scanner-header-mobile">Scanner</div>
         <div className="scanner-box-mobile">
           {scanning ? (
-            <div id="reader" ref={readerRef} />
+            <>
+              <div id="reader" ref={readerRef} />
+              {status === "wrong-qr" && (
+                <div className="scan-overlay-warning">
+                  ⚠️ Wrong QR code — scan the text one
+                </div>
+              )}
+            </>
           ) : status === "found" ? (
             <div
               className="scan-placeholder"

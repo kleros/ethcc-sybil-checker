@@ -67,6 +67,20 @@ h2 {
   height: unset !important;
 }
 
+.scan-overlay-warning {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem;
+  background: rgba(245, 158, 11, 0.9);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+  z-index: 10;
+}
+
 .scan-btn {
   width: 100%;
   padding: 1rem;
