@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/3ac1ac8f-fbbd-4d74-9f93-6ae0d6ff217e/deploy-status)](https://schelling-sybil-checker.netlify.app)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b5f390bd-35a4-4049-865d-8559abd5eba7/deploy-status)](https://app.netlify.com/projects/kleros-ethcc-checker/deploys)
 
 # ethcc-sybil-checker
 
